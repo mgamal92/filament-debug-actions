@@ -1,0 +1,19 @@
+{
+  "name": "mgamal92/filament-debug-actions",
+  "description": "Debug tools for Filament",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Mgamal92\\FilamentDebugActions\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Mohamed Gamal",
+      "email": "mg.dev1992@icloud.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {}
+}
