@@ -8,6 +8,13 @@
       "Mgamal92\\FilamentDebugActions\\": "src/"
     }
   },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Mgamal92\\FilamentDebugActions\\FilamentDebugActionsServiceProvider"
+      ]
+    }
+  },
   "authors": [
     {
       "name": "Mohamed Gamal",

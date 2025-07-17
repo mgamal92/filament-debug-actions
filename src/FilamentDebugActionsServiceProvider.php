@@ -10,9 +10,11 @@ class FilamentDebugActionsServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../config/filament-debug-actions.php' => config_path('filament-debug-actions.php'),
-        ], 'filament-debug-actions-config');
+        ], 'config');
 
         $this->mergeConfigFrom(__DIR__.'/../config/filament-debug-actions.php', 'filament-debug-actions');
+
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'filament-debug-actions');
     }
 
     public function register(): void
