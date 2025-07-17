@@ -19,6 +19,8 @@ class DebugActions extends Page
 
     protected static ?int $navigationSort = 99;
 
+    public $logOutput = '';
+
     public function getActions(): array
     {
         return collect(config('filament-debug-actions.actions', []))
@@ -55,18 +57,15 @@ class DebugActions extends Page
 
         $result = app($class)::execute();
 
-        $message = $result['message'] ?? 'Action executed.';
-
-        if ($result['success']) {
-            Notification::make()
-                ->title($message)
-                ->success()
-                ->send();
-        } else {
-            Notification::make()
-                ->title($message)
-                ->danger()
-                ->send();
+        if (! empty($result['modal']) && isset($result['data']['logOutput'])) {
+            $this->logOutput = $result['data']['logOutput'];
+            return;
         }
+
+        Notification::make()
+            ->title($result['message'] ?? 'Action executed.')
+            ->{($result['success'] ?? false) ? 'success' : 'danger'}()
+            ->send();
     }
+
 }

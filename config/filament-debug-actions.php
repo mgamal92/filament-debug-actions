@@ -2,6 +2,7 @@
 
 use Mgamal92\FilamentDebugActions\Actions\OptimizeClearAction;
 use Mgamal92\FilamentDebugActions\Actions\SendTestEmailAction;
+use Mgamal92\FilamentDebugActions\Actions\TailLogsAction;
 
 return [
 
@@ -21,6 +22,12 @@ return [
             'receiver' => 'receiver@demo.com'
         ],
 
+        'tail_logs' => [
+            'label' => 'Tail Laravel Log',
+            'description' => 'Show the last 30 lines from laravel.log',
+            'enabled' => true,
+            'class' => TailLogsAction::class,
+        ],
     ],
 
 ];
